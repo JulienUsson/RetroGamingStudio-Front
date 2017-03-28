@@ -10,6 +10,7 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
 import { GameListComponent } from './game-list/game-list.component';
 import { GamesComponent } from './games/games.component';
 import { MenuComponent } from './menu/menu.component';
+import { ConsoleDetailComponent } from './console-detail/console-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MenuComponent } from './menu/menu.component';
     GameDetailComponent,
     GameListComponent,
     GamesComponent,
-    MenuComponent
+    MenuComponent,
+    ConsoleDetailComponent
   ],
   imports: [
     BrowserModule,
