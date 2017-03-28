@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Game } from './game';
+import { Game } from '../game';
 
 import 'rxjs/add/operator/toPromise';
 
