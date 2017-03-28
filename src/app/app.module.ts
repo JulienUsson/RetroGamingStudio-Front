@@ -11,6 +11,8 @@ import { GameListComponent } from './game-list/game-list.component';
 import { GamesComponent } from './games/games.component';
 import { MenuComponent } from './menu/menu.component';
 import { ConsoleDetailComponent } from './console-detail/console-detail.component';
+import { ConsolesComponent } from './consoles/consoles.component';
+import { ConsoleListComponent } from './console-list/console-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { ConsoleDetailComponent } from './console-detail/console-detail.componen
     GameListComponent,
     GamesComponent,
     MenuComponent,
-    ConsoleDetailComponent
+    ConsoleDetailComponent,
+    ConsolesComponent,
+    ConsoleListComponent
   ],
   imports: [
     BrowserModule,

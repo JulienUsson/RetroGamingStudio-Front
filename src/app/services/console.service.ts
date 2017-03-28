@@ -5,11 +5,11 @@ import { Console } from '../models/console';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class GameService {
+export class ConsoleService {
 
   constructor(private http: Http) { }
 
-  getGames(): Promise<Console[]> {
+  getConsoles(): Promise<Console[]> {
     return this.http
       .get('http://localhost:8080/consoles')
       .toPromise()
