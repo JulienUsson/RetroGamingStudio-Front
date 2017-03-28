@@ -4,19 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import { GameListComponent } from './game-list/game-list.component';
+import { GamesComponent } from './games/games.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GameDetailComponent,
-    GameListComponent
+    GameListComponent,
+    GamesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
     HttpModule,
     MaterialModule
   ],
