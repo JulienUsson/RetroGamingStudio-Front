@@ -5,6 +5,23 @@ body {
     margin: 0;
 }
 
-#app-content {
-    margin: 1em;
+.flex {
+    display: flex;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.padding-right {
+    padding-right: 24px;
+}
+
+.justify {
+    text-align:justify;
+    line-height: 1.5em;
+}
+
+.padding {
+    padding: 5px;
 }

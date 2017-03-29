@@ -18,4 +18,14 @@ export class GameService {
         console.error(error);
       });
   }
+
+  getGameImage(gameId): Promise<string> {
+    return this.http
+      .get('http://localhost:8080/images/' + gameId)
+      .toPromise()
+      .then(response => response.text())
+      .catch(error => {
+        console.error(error);
+      });
+  }
 }

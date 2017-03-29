@@ -1,1 +1,9 @@
-<md-card>{{game.name}}</md-card>
+<md-card>
+    <md-card-header>
+        <md-card-title>{{game.name}}</md-card-title>
+    </md-card-header>
+    <img md-card-image [src]="image" />
+    <md-card-content>
+        <p class="justify">{{game.description}}</p>
+    </md-card-content>
+</md-card>
