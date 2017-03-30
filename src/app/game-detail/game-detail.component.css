@@ -21,3 +21,7 @@ md-card-title {
     font-size: 13px;
     line-height: 16px;
 }
+
+.score-title {
+    margin: 0.5em 0;
+}

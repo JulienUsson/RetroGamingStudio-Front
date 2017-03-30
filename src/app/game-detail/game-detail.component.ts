@@ -20,7 +20,15 @@ export class GameDetailComponent implements OnInit {
     });
   }
 
-  addJouabiliteScore(score: number) {
+  addPlayabilityScore(score: number) {
+    console.log(score);
+  }
+
+  addGraphicsScore(score: number) {
+    console.log(score);
+  }
+
+  addInterestScore(score: number) {
     console.log(score);
   }
 

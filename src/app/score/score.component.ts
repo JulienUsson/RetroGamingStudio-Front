@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class ScoreComponent implements OnInit {
   @Output() onScoreSelected: EventEmitter<number> = new EventEmitter<number>();
   @Input() value: number;
+  readOnly: boolean;
   selectedValue: number;
 
   constructor() { }
@@ -17,7 +18,19 @@ export class ScoreComponent implements OnInit {
   }
 
   onClick(i: number) {
-    this.onScoreSelected.emit(i+1);
+    this.readOnly = true;
+    this.onScoreSelected.emit(i + 1);
   }
 
+  onMouseLeave() {
+    if (this.readOnly !== true) {
+      this.selectedValue = this.value;
+    }
+  }
+
+  onMouseEnter(i: number) {
+    if (this.readOnly !== true) {
+      this.selectedValue = i + 1;
+    }
+  }
 }

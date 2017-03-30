@@ -5,10 +5,18 @@
     <img md-card-image [src]="image" />
     <md-card-content>
         <p class="justify">{{game.description}}</p>
+        <div>
+            <h4 class="score-title">Jouabilité</h4>
+            <score [value]="game.playability" (onScoreSelected)="addPlayabilityScore($event)"></score>
+
+            <h4 class="score-title">Graphismes</h4>
+            <score [value]="game.graphics" (onScoreSelected)="addGraphicsScore($event)"></score>
+
+            <h4 class="score-title">Interêt</h4>
+            <score [value]="game.interest" (onScoreSelected)="addInterestScore($event)"></score>
+        </div>
         <div class="consoles">
             <span class="console" *ngFor="let console of game.consoles">{{console.name}}</span>
         </div>
-        <h3>Jouabilité</h3>
-        <score [value]="4" (onScoreSelected)="addJouabiliteScore($event)"></score>
     </md-card-content>
 </md-card>
