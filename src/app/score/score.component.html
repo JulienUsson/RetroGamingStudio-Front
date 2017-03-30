@@ -1,0 +1,3 @@
+<div>
+  <md-icon *ngFor="let i of [0,1,2,3,4]" [ngClass]="(selectedValue > i) ? 'yellow' : 'grey'" (mouseenter)="selectedValue=i+1" (mouseleave)="selectedValue=value" (click)="onClick(i)">star</md-icon>
+</div>

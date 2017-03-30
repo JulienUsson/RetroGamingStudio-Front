@@ -20,4 +20,8 @@ export class GameDetailComponent implements OnInit {
     });
   }
 
+  addJouabiliteScore(score: number) {
+    console.log(score);
+  }
+
 }

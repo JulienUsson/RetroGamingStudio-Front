@@ -8,5 +8,7 @@
         <div class="consoles">
             <span class="console" *ngFor="let console of game.consoles">{{console.name}}</span>
         </div>
+        <h3>Jouabilité</h3>
+        <score [value]="4" (onScoreSelected)="addJouabiliteScore($event)"></score>
     </md-card-content>
 </md-card>
