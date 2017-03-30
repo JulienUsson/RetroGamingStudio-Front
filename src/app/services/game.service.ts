@@ -28,4 +28,15 @@ export class GameService {
         console.error(error);
       });
   }
+
+  addPlayabilityScore(gameId, score): Promise<void> {
+    return this.http
+      .post('http://localhost:8080/games/' + gameId + "/playabilityScores", {"score": score})
+      .toPromise()
+      .then(response => response.text())
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
 }

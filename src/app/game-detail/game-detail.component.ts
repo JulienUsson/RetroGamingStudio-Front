@@ -21,7 +21,7 @@ export class GameDetailComponent implements OnInit {
   }
 
   addPlayabilityScore(score: number) {
-    console.log(score);
+    this.gameService.addPlayabilityScore(this.game.id, score);
   }
 
   addGraphicsScore(score: number) {
