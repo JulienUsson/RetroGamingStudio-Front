@@ -1,3 +1,23 @@
 .game-image {
     width: 100%;
 }
+
+md-card-title {
+    font-size: 1.5em !important;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.consoles {
+    margin-top: 30px;
+}
+
+.console {
+    background-color: #607D8B;
+    padding: 8px 12px;
+    color: white;
+    width: auto;
+    border-radius: 24px;
+    font-size: 13px;
+    line-height: 16px;
+}

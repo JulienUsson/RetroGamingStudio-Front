@@ -5,5 +5,8 @@
     <img md-card-image [src]="image" />
     <md-card-content>
         <p class="justify">{{game.description}}</p>
+        <div class="consoles">
+            <span class="console" *ngFor="let console of game.consoles">{{console.name}}</span>
+        </div>
     </md-card-content>
 </md-card>
