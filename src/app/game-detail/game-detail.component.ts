@@ -25,11 +25,11 @@ export class GameDetailComponent implements OnInit {
   }
 
   addGraphicsScore(score: number) {
-    console.log(score);
+    this.gameService.addGraphicsScore(this.game.id, score);
   }
 
   addInterestScore(score: number) {
-    console.log(score);
+    this.gameService.addInterestScore(this.game.id, score);
   }
 
 }

@@ -39,4 +39,23 @@ export class GameService {
       });
   }
 
+  addGraphicsScore(gameId, score): Promise<void> {
+    return this.http
+      .post('http://localhost:8080/games/' + gameId + "/graphicsScores", {"score": score})
+      .toPromise()
+      .then(response => response.text())
+      .catch(error => {
+        console.error(error);
+      });
+  }
+
+  addInterestScore(gameId, score): Promise<void> {
+    return this.http
+      .post('http://localhost:8080/games/' + gameId + "/interestScores", {"score": score})
+      .toPromise()
+      .then(response => response.text())
+      .catch(error => {
+        console.error(error);
+      });
+  }
 }
