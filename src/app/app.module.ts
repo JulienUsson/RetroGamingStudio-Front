@@ -15,6 +15,7 @@ import { ConsoleDetailComponent } from './console-detail/console-detail.componen
 import { ConsolesComponent } from './consoles/consoles.component';
 import { ConsoleListComponent } from './console-list/console-list.component';
 import { ScoreComponent } from './score/score.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ScoreComponent } from './score/score.component';
     ConsoleDetailComponent,
     ConsolesComponent,
     ConsoleListComponent,
-    ScoreComponent
+    ScoreComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

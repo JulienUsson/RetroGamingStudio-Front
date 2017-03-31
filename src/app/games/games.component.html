@@ -1,1 +1,2 @@
-<game-list [games]="games"></game-list>
+<game-list [games]="games?.content"></game-list>
+<pagination *ngIf="games" [infos]="games"></pagination>

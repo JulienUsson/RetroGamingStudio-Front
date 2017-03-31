@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Pagination } from '../models/pagination';
 import { Game } from '../models/game';
 import { GameService } from '../services/game.service';
 
@@ -10,7 +11,7 @@ import { GameService } from '../services/game.service';
   providers: [GameService]
 })
 export class GamesComponent implements OnInit {
-  games: Array<Game>;
+  games: Pagination<Game>;
 
   constructor(private gameService: GameService) { }
 
