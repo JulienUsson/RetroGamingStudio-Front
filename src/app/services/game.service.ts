@@ -10,9 +10,9 @@ export class GameService {
 
   constructor(private http: Http) { }
 
-  getGames(): Promise<Pagination<Game>> {
+  getGames(page: number): Promise<Pagination<Game>> {
     return this.http
-      .get('http://localhost:8080/games')
+      .get('http://localhost:8080/games?page=' + page)
       .toPromise()
       .then(response => response.json() as Pagination<Game>)
       .catch(error => {

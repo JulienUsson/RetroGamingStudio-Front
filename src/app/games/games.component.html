@@ -1,2 +1,12 @@
-<game-list [games]="games?.content"></game-list>
-<pagination *ngIf="games" [infos]="games"></pagination>
+<div *ngIf="!isLoading && games?.numberOfElements > 0">
+    <game-list [games]="games?.content"></game-list>
+    <pagination *ngIf="games" [infos]="games" (onPageSelected)="changePage($event)"></pagination>
+</div>
+
+<div *ngIf="!isLoading && games?.numberOfElements == 0">
+    <md-card>Aucun jeux.</md-card>
+</div>
+
+<div *ngIf="isLoading">
+    <md-spinner></md-spinner>
+</div>

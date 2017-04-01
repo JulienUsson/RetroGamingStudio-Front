@@ -1,1 +1,3 @@
-{{infos.number}}
+<div class="pagination">
+    <button *ngFor="let i of pageArray" (click)="onClick(i)" [disabled]="infos.number == i - 1" md-fab>{{i}}</button>
+</div>

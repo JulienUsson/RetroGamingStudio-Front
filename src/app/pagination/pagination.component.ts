@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { PaginationInfos } from '../models/paginationInfos';
 
@@ -8,11 +8,19 @@ import { PaginationInfos } from '../models/paginationInfos';
   styleUrls: ['./pagination.component.css']
 })
 export class PaginationComponent implements OnInit {
+  @Output() onPageSelected: EventEmitter<number> = new EventEmitter<number>();
   @Input() infos: any;
+  pageArray = new Array<number>();
   constructor() { }
 
   ngOnInit() {
-    console.log("infos", this.infos);
+    for (var i = 1; i <= this.infos.totalPages; ++i) {
+      this.pageArray.push(i);
+    }
+  }
+
+  onClick(i: number) {
+    this.onPageSelected.emit(i);
   }
 
 }
