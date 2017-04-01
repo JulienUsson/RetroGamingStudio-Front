@@ -6,5 +6,9 @@ export class Game {
     playability: number;
     graphics: number;
     interest: number;
+    gameFranchise: {
+        id: number,
+        name: string
+    }
     consoles: Console[];
 }

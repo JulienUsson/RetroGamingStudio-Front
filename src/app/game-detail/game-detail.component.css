@@ -8,6 +8,10 @@ md-card-title {
     text-transform: capitalize;
 }
 
+md-card-subtitle {
+    text-transform: capitalize;
+}
+
 .consoles {
     margin-top: 30px;
 }

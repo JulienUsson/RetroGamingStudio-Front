@@ -13,3 +13,11 @@ body {
 .padding {
     padding: 5px;
 }
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
