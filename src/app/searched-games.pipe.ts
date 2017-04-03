@@ -11,9 +11,13 @@ export class SearchedGamesPipe implements PipeTransform {
 
     return allGames.filter((game) => {
         if(searchStr) {
-          let regExp = new RegExp('.*'+searchStr+'.*');
-          // TODO gérer les majuscules
-          // TODO gérer les gameFranchises 
+          let regExp = new RegExp('.*'+searchStr+'.*', 'i');
+          // TODO gérer les gameFranchises
+          /*for(let gameFranchise of game.gameFranchise) {
+            if(regExp.test(gameFranchise.name)) {
+              return true;
+            }
+          }*/
           return regExp.test(game.name);
         } else {
           // no research so display all items
@@ -21,7 +25,7 @@ export class SearchedGamesPipe implements PipeTransform {
         }
       }
     );
-    
+
   }
 
 }
