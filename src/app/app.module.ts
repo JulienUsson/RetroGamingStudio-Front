@@ -16,6 +16,7 @@ import { ConsolesComponent } from './consoles/consoles.component';
 import { ConsoleListComponent } from './console-list/console-list.component';
 import { ScoreComponent } from './score/score.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { SearchedGamesPipe } from './searched-games.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     ConsolesComponent,
     ConsoleListComponent,
     ScoreComponent,
-    PaginationComponent
+    PaginationComponent,
+    SearchedGamesPipe
   ],
   imports: [
     BrowserModule,

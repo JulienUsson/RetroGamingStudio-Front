@@ -1,3 +1,7 @@
+<md-input-container>
+  <input mdInput placeholder="Rechercher un jeu" [(ngModel)]="searchInput">
+</md-input-container>
+
 <div fxLayout='row' fxLayoutWrap="wrap">
-    <game-detail *ngFor="let game of games" [game]="game" fxFlex.xs="100" fxFlex.gt-xs="50" fxFlex.gt-sm="33" fxFlex.gt-md="25" class="padding"></game-detail>
+    <game-detail *ngFor="let game of (games | searchedGames:searchInput)" [game]="game" fxFlex.xs="100" fxFlex.gt-xs="50" fxFlex.gt-sm="33" fxFlex.gt-md="25" class="padding"></game-detail>
 </div>
