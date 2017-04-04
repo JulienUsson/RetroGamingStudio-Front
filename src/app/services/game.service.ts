@@ -30,7 +30,7 @@ export class GameService {
       });
   }
 
-  addPlayabilityScore(gameId, score): Promise<void> {
+  addPlayabilityScore(gameId, score): Promise<string> {
     return this.http
       .post('http://localhost:8080/games/' + gameId + "/playabilityScores", {"score": score})
       .toPromise()
@@ -40,7 +40,7 @@ export class GameService {
       });
   }
 
-  addGraphicsScore(gameId, score): Promise<void> {
+  addGraphicsScore(gameId, score): Promise<string> {
     return this.http
       .post('http://localhost:8080/games/' + gameId + "/graphicsScores", {"score": score})
       .toPromise()
@@ -50,7 +50,7 @@ export class GameService {
       });
   }
 
-  addInterestScore(gameId, score): Promise<void> {
+  addInterestScore(gameId, score): Promise<string> {
     return this.http
       .post('http://localhost:8080/games/' + gameId + "/interestScores", {"score": score})
       .toPromise()

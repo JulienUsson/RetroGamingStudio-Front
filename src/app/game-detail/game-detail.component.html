@@ -7,13 +7,13 @@
     <md-card-content>
         <p class="justify">{{game.description}}</p>
         <div>
-            <h4 class="score-title">Jouabilité</h4>
+            <h4 class="score-title">Jouabilité ({{game.playabilityScoresCount}} votes)</h4>
             <score [value]="game.playability" (onScoreSelected)="addPlayabilityScore($event)"></score>
 
-            <h4 class="score-title">Graphismes</h4>
+            <h4 class="score-title">Graphismes ({{game.graphicsScoresCount}} votes)</h4>
             <score [value]="game.graphics" (onScoreSelected)="addGraphicsScore($event)"></score>
 
-            <h4 class="score-title">Interêt</h4>
+            <h4 class="score-title">Interêt ({{game.interestScoresCount}} votes)</h4>
             <score [value]="game.interest" (onScoreSelected)="addInterestScore($event)"></score>
         </div>
         <div class="consoles">

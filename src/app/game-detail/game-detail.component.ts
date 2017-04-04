@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MdSnackBar } from '@angular/material';
 import { Game } from '../models/game';
 import { GameService } from '../services/game.service';
 
@@ -12,7 +13,7 @@ export class GameDetailComponent implements OnInit {
   @Input() game: Game;
   @Input() image: string;
 
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService, public snackBar: MdSnackBar) { }
 
   ngOnInit() {
     this.gameService.getGameImage(this.game.id).then(image => {
@@ -21,15 +22,27 @@ export class GameDetailComponent implements OnInit {
   }
 
   addPlayabilityScore(score: number) {
-    this.gameService.addPlayabilityScore(this.game.id, score);
+    this.gameService.addPlayabilityScore(this.game.id, score).then(() => {
+      this.snackBar.open("Votre vote a bien été pris en compte !", null, {
+        duration: 1000,
+      });
+    });
   }
 
   addGraphicsScore(score: number) {
-    this.gameService.addGraphicsScore(this.game.id, score);
+    this.gameService.addGraphicsScore(this.game.id, score).then(() => {
+      this.snackBar.open("Votre vote a bien été pris en compte !", null, {
+        duration: 1000,
+      });
+    });
   }
 
   addInterestScore(score: number) {
-    this.gameService.addInterestScore(this.game.id, score);
+    this.gameService.addInterestScore(this.game.id, score).then(() => {
+      this.snackBar.open("Votre vote a bien été pris en compte !", null, {
+        duration: 1000,
+      });
+    });
   }
 
 }

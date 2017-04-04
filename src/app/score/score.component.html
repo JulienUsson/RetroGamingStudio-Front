@@ -1,5 +1,5 @@
 <div>
   <md-icon *ngFor="let i of [0,1,2,3,4]" [ngClass]="[(selectedValue > i) ? 'yellow' : 'grey', (readOnly) ? 'darker' : '']"
     (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave()" (click)="onClick(i)">star</md-icon>
-  <div class="right score">{{value}}/5</div>
+  <div class="right score">{{value | number : '1.0-1'}}/5</div>
 </div>
