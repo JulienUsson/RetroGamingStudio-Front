@@ -9,3 +9,7 @@
 .yellow.darker {
     color: #F57F17;
 }
+
+.score {
+    font-weight: bold;
+}
