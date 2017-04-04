@@ -1,4 +1,5 @@
 import { Console } from './console';
+import { GameFranchise } from './gameFranchise'
 
 export class Game {
     id: number;
@@ -6,9 +7,6 @@ export class Game {
     playability: number;
     graphics: number;
     interest: number;
-    gameFranchise: {
-        id: number,
-        name: string
-    }
+    gameFranchise: GameFranchise;
     consoles: Console[];
 }
