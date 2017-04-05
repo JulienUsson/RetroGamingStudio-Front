@@ -13,7 +13,6 @@ import { GamesComponent } from './games/games.component';
 import { MenuComponent } from './menu/menu.component';
 import { ScoreComponent } from './score/score.component';
 import { PaginationComponent } from './pagination/pagination.component';
-import { SearchedGamesPipe } from './searched-games.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import { SearchedGamesPipe } from './searched-games.pipe';
     MenuComponent,
     ScoreComponent,
     PaginationComponent,
-    SearchedGamesPipe
   ],
   imports: [
     BrowserModule,
@@ -32,7 +30,7 @@ import { SearchedGamesPipe } from './searched-games.pipe';
     AppRoutingModule,
     HttpModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

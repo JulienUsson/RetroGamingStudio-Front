@@ -37,7 +37,21 @@ export class GamesComponent implements OnInit {
     });
   }
 
+  private searchGames(search: string) {
+    // get games
+    this.getSearchedGames(1, search);
+  }
+
+  private getSearchUrl(search : string, page : number) : string {
+    return "/games/search-" + search + "/" + page;
+  }
+
+  private getNormalUrl(page : number) : string {
+    return "/games/" + page;
+  }
+
   private getSearchedGames(page: number, searchedValue: string) {
+    this.location.go(this.getSearchUrl(searchedValue, 1));
     this.isLoading = true;
     this.gameService.getSearchedGames(page, searchedValue).then(games => {
         this.games = games;
@@ -51,6 +65,7 @@ export class GamesComponent implements OnInit {
   }
 
   private getGames(page: number) {
+    this.location.go("/games/" + page);
     this.isLoading = true;
     this.gameService.getGames(page).then(games => {
         this.games = games;
@@ -67,10 +82,8 @@ export class GamesComponent implements OnInit {
     this.route.params.subscribe(params => {
         // is there a searchedValue ?
         if("searchedValue" in params && params['searchedValue'] != "") {
-          this.location.go("/games/search/" + params['searchedValue'] + "/" + page);
           this.getSearchedGames(page, params['searchedValue']);
         } else {
-          this.location.go("/games/" + page);
           this.getGames(page);
         }
       });

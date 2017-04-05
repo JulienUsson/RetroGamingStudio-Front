@@ -6,8 +6,8 @@ const routes: Routes = [
     { path: '', redirectTo: '/games', pathMatch: 'full' },
     { path: 'games', component: GamesComponent},
     { path: 'games/:page', component: GamesComponent },
-    { path: 'games/search/:searchedValue', component: GamesComponent },
-    { path: 'games/search/:searchedValue/:page', component: GamesComponent },
+    { path: 'games/search-:searchedValue', component: GamesComponent },
+    { path: 'games/search-:searchedValue/:page', component: GamesComponent },
 ];
 
 @NgModule({

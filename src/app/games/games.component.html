@@ -1,10 +1,28 @@
+<md-input-container>
+    <input mdInput placeholder="Rechercher un jeu" [(ngModel)]="searchInput" (keyup.enter)="searchGames(searchInput)">
+</md-input-container>
+<span *ngIf="searchInput">
+    <a md-mini-fab (click)="searchGames(searchInput)"><md-icon>search</md-icon></a>
+    <a md-mini-fab (click)="searchInput='';getGames(1);"><md-icon>close</md-icon></a>
+</span>
+
 <div *ngIf="!isLoading && games?.numberOfElements > 0">
     <game-list [games]="games?.content"></game-list>
     <pagination *ngIf="games" [infos]="games" (onPageSelected)="changePage($event)"></pagination>
 </div>
 
 <div *ngIf="!isLoading && games?.numberOfElements == 0">
-    <md-card>Aucun jeux.</md-card>
+    <md-card>
+        <md-icon>sentiment_neutral</md-icon>
+        Aucun jeux.
+    </md-card>
+</div>
+
+<div *ngIf="!isLoading && !games">
+    <md-card>
+        <md-icon>sentiment_very_dissatisfied</md-icon>
+        Impossible de charger les éléments.
+    </md-card>
 </div>
 
 <div *ngIf="isLoading">
