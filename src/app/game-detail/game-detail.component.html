@@ -3,7 +3,7 @@
         <md-card-title>{{game.name}}</md-card-title>
         <md-card-subtitle>{{game.gameFranchise?.name}}</md-card-subtitle>
     </md-card-header>
-    <img md-card-image [src]="image" />
+    <img md-card-image [src]="image || ''" />
     <md-card-content>
         <p class="justify">{{game.description}}</p>
         <div>
