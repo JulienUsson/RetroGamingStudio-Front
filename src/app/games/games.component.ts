@@ -22,8 +22,32 @@ export class GamesComponent implements OnInit {
     this.isLoading = true;
 
     this.route.params.subscribe(params => {
-      this.getGames(+params['page']);
+      // param page
+      let page : number = 1;
+      if("page" in params) {
+        page = +params['page'];
+      }
+
+      // is there a searchedValue ?
+      if("searchedValue" in params && params['searchedValue'] != "") {
+        this.getSearchedGames(page, params['searchedValue']);
+      } else {
+        this.getGames(page);
+      }
     });
+  }
+
+  private getSearchedGames(page: number, searchedValue: string) {
+    this.isLoading = true;
+    this.gameService.getSearchedGames(page, searchedValue).then(games => {
+        this.games = games;
+        this.isLoading = false;
+
+        // if no games in page -> change to page 1
+        if(page != 1 && this.games.numberOfElements == 0) {
+          this.changePage(1);
+        }
+      });
   }
 
   private getGames(page: number) {
@@ -31,12 +55,25 @@ export class GamesComponent implements OnInit {
     this.gameService.getGames(page).then(games => {
         this.games = games;
         this.isLoading = false;
+
+        // if no games in page -> change to page 1
+        if(page != 1 && this.games.numberOfElements == 0) {
+          this.changePage(1);
+        }
       });
   }
 
   changePage(page: number) {
-    this.location.go("/games/" + page);
-    this.getGames(page);
+    this.route.params.subscribe(params => {
+        // is there a searchedValue ?
+        if("searchedValue" in params && params['searchedValue'] != "") {
+          this.location.go("/games/search/" + params['searchedValue'] + "/" + page);
+          this.getSearchedGames(page, params['searchedValue']);
+        } else {
+          this.location.go("/games/" + page);
+          this.getGames(page);
+        }
+      });
   }
 
 }
