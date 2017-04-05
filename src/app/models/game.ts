@@ -1,4 +1,5 @@
 import { Console } from './console';
+import { GameFranchise } from './gameFranchise'
 
 export class Game {
     id: number;

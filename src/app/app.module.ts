@@ -11,9 +11,6 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
 import { GameListComponent } from './game-list/game-list.component';
 import { GamesComponent } from './games/games.component';
 import { MenuComponent } from './menu/menu.component';
-import { ConsoleDetailComponent } from './console-detail/console-detail.component';
-import { ConsolesComponent } from './consoles/consoles.component';
-import { ConsoleListComponent } from './console-list/console-list.component';
 import { ScoreComponent } from './score/score.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { SearchedGamesPipe } from './searched-games.pipe';
@@ -25,9 +22,6 @@ import { SearchedGamesPipe } from './searched-games.pipe';
     GameListComponent,
     GamesComponent,
     MenuComponent,
-    ConsoleDetailComponent,
-    ConsolesComponent,
-    ConsoleListComponent,
     ScoreComponent,
     PaginationComponent,
     SearchedGamesPipe
