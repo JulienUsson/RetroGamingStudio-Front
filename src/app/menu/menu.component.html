@@ -1,3 +1,15 @@
-<md-toolbar color="primary">
-    <span>Retro Gaming Studio</span>
-</md-toolbar>
+<div class="toolbar">
+    <md-toolbar color="primary">
+        <span><md-icon>games</md-icon>Retro Gaming Studio</span>
+        <span class="spacer"></span>
+        <button (click)="search = !search" md-icon-button><md-icon>search</md-icon></button>
+    </md-toolbar>
+
+    <md-toolbar *ngIf="search" class="menu-search-bar">
+        <md-input-container class="menu-search">
+            <input mdInput placeholder="Rechercher un jeu" (ngModel)="searchInput">
+        </md-input-container>
+        <span class="spacer"></span>
+        <button md-icon-button (click)="search = false"><md-icon>close</md-icon></button>
+    </md-toolbar>
+</div>

@@ -1,12 +1,19 @@
-<div *ngIf="!isLoading && games?.numberOfElements > 0">
-    <game-list [games]="games?.content"></game-list>
-    <pagination *ngIf="games" [infos]="games" (onPageSelected)="changePage($event)"></pagination>
+<div *ngIf="!isLoading">
+    <div *ngIf="games?.numberOfElements > 0">
+        <game-list [games]="games?.content"></game-list>
+        <pagination *ngIf="games" [infos]="games" (onPageSelected)="changePage($event)"></pagination>
+    </div>
+
+    <md-card *ngIf="games?.numberOfElements == 0">
+        <md-icon>sentiment_neutral</md-icon>
+        Aucun jeux.
+    </md-card>
+
+    <md-card *ngIf="!games">
+        <md-icon>sentiment_very_dissatisfied</md-icon>
+        Impossible de charger les éléments.
+    </md-card>
 </div>
 
-<div *ngIf="!isLoading && games?.numberOfElements == 0">
-    <md-card>Aucun jeux.</md-card>
-</div>
 
-<div *ngIf="isLoading">
-    <md-spinner></md-spinner>
-</div>
+<md-spinner *ngIf="isLoading"></md-spinner>

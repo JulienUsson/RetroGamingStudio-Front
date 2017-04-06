@@ -2,17 +2,21 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Pagination } from '../models/pagination';
 import { Game } from '../models/game';
+import Config from '../config';
 
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class GameService {
-
   constructor(private http: Http) { }
 
-  getGames(page: number): Promise<Pagination<Game>> {
+  getGames(page: number, searchedValue: string = null): Promise<Pagination<Game>> {
+    let url = Config.urlApi + '/games?page=' + page;
+    if(searchedValue !== null) {
+      url+= "&search=" + searchedValue;
+    }
     return this.http
-      .get('http://localhost:8080/games?page=' + page)
+      .get(url)
       .toPromise()
       .then(response => response.json() as Pagination<Game>)
       .catch(error => {
@@ -22,7 +26,7 @@ export class GameService {
 
   getGameImage(gameId): Promise<string> {
     return this.http
-      .get('http://localhost:8080/images/' + gameId)
+      .get(Config.urlApi + '/images/' + gameId)
       .toPromise()
       .then(response => response.text())
       .catch(error => {
@@ -32,7 +36,7 @@ export class GameService {
 
   addPlayabilityScore(gameId, score): Promise<string> {
     return this.http
-      .post('http://localhost:8080/games/' + gameId + "/playabilityScores", {"score": score})
+      .post(Config.urlApi + '/games/' + gameId + "/playabilityScores", {"score": score})
       .toPromise()
       .then(response => response.text())
       .catch(error => {
@@ -42,7 +46,7 @@ export class GameService {
 
   addGraphicsScore(gameId, score): Promise<string> {
     return this.http
-      .post('http://localhost:8080/games/' + gameId + "/graphicsScores", {"score": score})
+      .post(Config.urlApi + '/games/' + gameId + "/graphicsScores", {"score": score})
       .toPromise()
       .then(response => response.text())
       .catch(error => {
@@ -52,7 +56,7 @@ export class GameService {
 
   addInterestScore(gameId, score): Promise<string> {
     return this.http
-      .post('http://localhost:8080/games/' + gameId + "/interestScores", {"score": score})
+      .post(Config.urlApi + '/games/' + gameId + "/interestScores", {"score": score})
       .toPromise()
       .then(response => response.text())
       .catch(error => {

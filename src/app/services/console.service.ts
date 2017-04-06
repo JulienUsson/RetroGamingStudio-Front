@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Console } from '../models/console';
+import Config from '../config';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -11,7 +12,7 @@ export class ConsoleService {
 
   getConsoles(): Promise<Console[]> {
     return this.http
-      .get('http://localhost:8080/consoles')
+      .get(Config.urlApi + '/consoles')
       .toPromise()
       .then(response => response.json() as Console[])
       .catch(error => {
