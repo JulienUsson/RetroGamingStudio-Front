@@ -2,7 +2,7 @@
     <md-toolbar color="primary">
         <span><md-icon>games</md-icon>Retro Gaming Studio</span>
         <span class="spacer"></span>
-        <button (click)="displaySearchBar = true" md-icon-button><md-icon>search</md-icon></button>
+        <button (click)="displaySearchBar = !displaySearchBar" md-icon-button><md-icon>search</md-icon></button>
     </md-toolbar>
 
     <md-toolbar *ngIf="displaySearchBar" class="menu-search-bar">
