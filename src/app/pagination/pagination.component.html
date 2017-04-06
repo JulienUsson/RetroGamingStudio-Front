@@ -1,3 +1,3 @@
-<div class="pagination">
+<div class="pagination" *ngIf="infos.totalPages !== 1">
     <button *ngFor="let i of pageArray" (click)="onClick(i)" [disabled]="infos.number == i - 1" md-fab>{{i}}</button>
 </div>
