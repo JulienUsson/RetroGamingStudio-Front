@@ -4,6 +4,8 @@ Link : `https://github.com/bkuchcik/cours-jee-isima/blob/master/sujets/Sujet%20T
 
 # Front-End of RetroGamingStudio project
 
+Back-End is available at : `https://github.com/vmizoules/RetroGamingStudio-Back`
+
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
