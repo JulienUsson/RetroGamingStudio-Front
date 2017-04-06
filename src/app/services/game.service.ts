@@ -2,29 +2,21 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Pagination } from '../models/pagination';
 import { Game } from '../models/game';
+import Config from '../config';
 
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class GameService {
-
-  url : String = "http://localhost:8080";
-
   constructor(private http: Http) { }
 
-  getGames(page: number): Promise<Pagination<Game>> {
+  getGames(page: number, searchedValue: string = null): Promise<Pagination<Game>> {
+    let url = Config.urlApi + '/games?page=' + page;
+    if(searchedValue !== null) {
+      url+= "&search=" + searchedValue;
+    }
     return this.http
-      .get(this.url + '/games?page=' + page)
-      .toPromise()
-      .then(response => response.json() as Pagination<Game>)
-      .catch(error => {
-        console.error(error);
-      });
-  }
-
-  getSearchedGames(page: number, searchedValue: string): Promise<Pagination<Game>> {
-    return this.http
-      .get(this.url + '/games?page=' + page + "&search=" + searchedValue)
+      .get(url)
       .toPromise()
       .then(response => response.json() as Pagination<Game>)
       .catch(error => {
@@ -34,7 +26,7 @@ export class GameService {
 
   getGameImage(gameId): Promise<string> {
     return this.http
-      .get(this.url + '/images/' + gameId)
+      .get(Config.urlApi + '/images/' + gameId)
       .toPromise()
       .then(response => response.text())
       .catch(error => {
@@ -44,7 +36,7 @@ export class GameService {
 
   addPlayabilityScore(gameId, score): Promise<string> {
     return this.http
-      .post(this.url + '/games/' + gameId + "/playabilityScores", {"score": score})
+      .post(Config.urlApi + '/games/' + gameId + "/playabilityScores", {"score": score})
       .toPromise()
       .then(response => response.text())
       .catch(error => {
@@ -54,7 +46,7 @@ export class GameService {
 
   addGraphicsScore(gameId, score): Promise<string> {
     return this.http
-      .post(this.url + '/games/' + gameId + "/graphicsScores", {"score": score})
+      .post(Config.urlApi + '/games/' + gameId + "/graphicsScores", {"score": score})
       .toPromise()
       .then(response => response.text())
       .catch(error => {
@@ -64,7 +56,7 @@ export class GameService {
 
   addInterestScore(gameId, score): Promise<string> {
     return this.http
-      .post(this.url + '/games/' + gameId + "/interestScores", {"score": score})
+      .post(Config.urlApi + '/games/' + gameId + "/interestScores", {"score": score})
       .toPromise()
       .then(response => response.text())
       .catch(error => {
