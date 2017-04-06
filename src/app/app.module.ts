@@ -13,6 +13,7 @@ import { GamesComponent } from './games/games.component';
 import { MenuComponent } from './menu/menu.component';
 import { ScoreComponent } from './score/score.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { SearchBarService } from './services/searchBar.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { PaginationComponent } from './pagination/pagination.component';
     MaterialModule,
     FlexLayoutModule,
   ],
-  providers: [],
+  providers: [SearchBarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

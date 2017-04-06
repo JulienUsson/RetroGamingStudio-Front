@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchBarService } from '../services/searchBar.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +10,7 @@ export class MenuComponent implements OnInit {
   displaySearchBar = false;
   searchInput: string;
 
-  constructor() { }
+  constructor(private searchBarService: SearchBarService) { }
 
   ngOnInit() {
   }
@@ -20,7 +21,9 @@ export class MenuComponent implements OnInit {
   }
 
   search() {
-    console.log(this.searchInput)
+    if (this.searchInput !== null && this.searchInput !== '') {
+      this.searchBarService.search(this.searchInput);
+    }
     this.closeSearchBar();
   }
 }

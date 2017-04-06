@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { Pagination } from '../models/pagination';
 import { Game } from '../models/game';
 import { GameService } from '../services/game.service';
+import { SearchBarService } from '../services/searchBar.service';
 
 @Component({
   selector: 'games',
@@ -18,9 +19,15 @@ export class GamesComponent implements OnInit {
   isLoading: boolean;
   searchInput: string = null;
 
-  constructor(private gameService: GameService, private route: ActivatedRoute, private location: Location) { }
+  constructor(private gameService: GameService, private searchBarService: SearchBarService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
+    this.searchBarService.searchBarEvent.subscribe(
+      value => {
+        console.log(value);
+      }
+    );
+
     this.route.params.subscribe(params => {
       if ('page' in params) {
         this.page = +params['page'];

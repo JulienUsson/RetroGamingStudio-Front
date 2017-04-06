@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Pagination } from '../models/pagination';
-import { Game } from '../models/game';
+import 'rxjs/add/operator/toPromise';
 import Config from '../config';
 
-import 'rxjs/add/operator/toPromise';
+import { Game } from '../models/game';
+import { Pagination } from '../models/pagination';
 
 @Injectable()
 export class GameService {
@@ -12,8 +12,8 @@ export class GameService {
 
   getGames(page: number, searchedValue: string = null): Promise<Pagination<Game>> {
     let url = Config.urlApi + '/games?page=' + page;
-    if(searchedValue !== null) {
-      url+= "&search=" + searchedValue;
+    if (searchedValue !== null) {
+      url += "&search=" + searchedValue;
     }
     return this.http
       .get(url)
@@ -36,7 +36,7 @@ export class GameService {
 
   addPlayabilityScore(gameId, score): Promise<string> {
     return this.http
-      .post(Config.urlApi + '/games/' + gameId + "/playabilityScores", {"score": score})
+      .post(Config.urlApi + '/games/' + gameId + "/playabilityScores", { "score": score })
       .toPromise()
       .then(response => response.text())
       .catch(error => {
@@ -46,7 +46,7 @@ export class GameService {
 
   addGraphicsScore(gameId, score): Promise<string> {
     return this.http
-      .post(Config.urlApi + '/games/' + gameId + "/graphicsScores", {"score": score})
+      .post(Config.urlApi + '/games/' + gameId + "/graphicsScores", { "score": score })
       .toPromise()
       .then(response => response.text())
       .catch(error => {
@@ -56,7 +56,7 @@ export class GameService {
 
   addInterestScore(gameId, score): Promise<string> {
     return this.http
-      .post(Config.urlApi + '/games/' + gameId + "/interestScores", {"score": score})
+      .post(Config.urlApi + '/games/' + gameId + "/interestScores", { "score": score })
       .toPromise()
       .then(response => response.text())
       .catch(error => {
