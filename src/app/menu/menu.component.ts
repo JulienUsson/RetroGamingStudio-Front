@@ -6,11 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  search = false;
+  displaySearchBar = false;
   searchInput: string;
-  
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  closeSearchBar() {
+    this.displaySearchBar = false;
+    this.searchInput = null;
+  }
+
+  search() {
+    console.log(this.searchInput)
+    this.closeSearchBar();
   }
 }
