@@ -7,7 +7,7 @@
 
     <md-toolbar *ngIf="displaySearchBar" class="menu-search-bar">
         <md-input-container class="menu-search" floatPlaceholder="never">
-            <input mdInput placeholder="Rechercher un jeu" [(ngModel)]="searchInput" (keyup.enter)="search()">
+            <input mdInput placeholder="Rechercher un jeu" [(ngModel)]="searchInput" (keyup.enter)="search()" (keyup.escape)="closeSearchBar()" value="searchInput">
         </md-input-container>
         <span class="spacer"></span>
         <button md-icon-button (click)="closeSearchBar()"><md-icon>close</md-icon></button>
