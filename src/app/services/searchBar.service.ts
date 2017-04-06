@@ -9,6 +9,6 @@ export class SearchBarService {
   public searchBarEvent = new Subject<string>();
 
   public search(searchInput: string) {
-    this.searchBarEvent.next("test");
+    this.searchBarEvent.next(searchInput);
   }
 }

@@ -21,9 +21,7 @@ export class MenuComponent implements OnInit {
   }
 
   search() {
-    if (this.searchInput !== null && this.searchInput !== '') {
-      this.searchBarService.search(this.searchInput);
-    }
+    this.searchBarService.search(this.searchInput);
     this.closeSearchBar();
   }
 }

@@ -22,9 +22,10 @@ export class GamesComponent implements OnInit {
   constructor(private gameService: GameService, private searchBarService: SearchBarService, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
-    this.searchBarService.searchBarEvent.subscribe(
-      value => {
-        console.log(value);
+    this.searchBarService.searchBarEvent.subscribe(value => {
+        this.searchInput = value;
+        this.page = 1;
+        this.getGames();
       }
     );
 
