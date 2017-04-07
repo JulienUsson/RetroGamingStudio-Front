@@ -30,8 +30,10 @@ export class GamesComponent implements OnInit {
     );
 
     this.route.params.subscribe(params => {
-      if ('page' in params) {
+      if ('page' in params && +params['page'] !== 0) {
         this.page = +params['page'];
+      } else {
+        this.location.go("/games/" + 1);
       }
 
       this.getGames();
