@@ -25,6 +25,7 @@ export class GamesComponent implements OnInit {
     this.searchBarService.searchBarEvent.subscribe(value => {
         this.searchInput = value;
         this.page = 1;
+        this.location.go("/games/" + this.page);
         this.getGames();
       }
     );
